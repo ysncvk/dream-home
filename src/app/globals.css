@@ -36,3 +36,5 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Night mode – applied via :global in page when needed */

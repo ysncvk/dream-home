@@ -1,0 +1,26 @@
+.btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 60;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: var(--card-bg);
+  box-shadow: 0 4px 16px var(--card-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px var(--card-shadow);
+}
+
+.icon {
+  font-size: 1.5rem;
+}
