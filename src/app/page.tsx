@@ -4,62 +4,71 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
+      <div className={styles.bgDecor} aria-hidden>
+        <div className={`${styles.cloud} ${styles.cloud1}`} />
+        <div className={`${styles.cloud} ${styles.cloud2}`} />
+        <div className={`${styles.cloud} ${styles.cloud3}`} />
+        <div className={`${styles.cloud} ${styles.cloud4}`} />
+        <div className={styles.sun} />
+      </div>
+
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+        <header className={styles.hero}>
+          <h1 className={styles.heroTitle}>My Dream House 🏔️</h1>
+          <p className={styles.heroSub}>Hi! My name is Ayaz. Today I will talk about my dream house.</p>
+        </header>
+
+        <div className={styles.photoWrap}>
+          <Image
+            src="/ayazhouse.png"
+            alt="Ayaz's dream house in the mountains"
+            width={1200}
+            height={800}
+            sizes="(max-width: 900px) 100vw, 900px"
+            priority
+          />
+        </div>
+
+        <section className={styles.intro}>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            <strong>My dream house is small and peaceful in the mountains.</strong> There is a kitchen and a bedroom.
           </p>
+          <p>
+            There are <strong>three bathrooms</strong> in the house and <strong>two balconies</strong>. There is a{" "}
+            <strong>beautiful mountain view</strong>.
+          </p>
+        </section>
+
+        <div className={styles.features}>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🛏️</span>
+            <span>Kitchen & Bedroom</span>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🚿</span>
+            <span>3 Bathrooms</span>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>🌅</span>
+            <span>2 Balconies</span>
+          </div>
+          <div className={styles.featureCard}>
+            <span className={styles.featureIcon}>⛰️</span>
+            <span>Mountain View</span>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        <section className={styles.why}>
+          <h3>Why I like this house</h3>
+          <p>
+            I like this house, because it is <strong>peaceful and comfortable</strong>. I like relaxing and this house
+            is perfect for relaxing.
+          </p>
+        </section>
+
+        <footer className={styles.footer}>
+          — Ayaz 🌲
+        </footer>
       </main>
     </div>
   );
