@@ -21,7 +21,7 @@ function random(min: number, max: number) {
 }
 
 type Particle = {
-  id: number;
+  id: string;
   x: number;
   y: number;
   tx: number;
@@ -33,7 +33,7 @@ type Particle = {
 };
 
 export default function Fireworks() {
-  const [bursts, setBursts] = useState<Array<{ id: number; particles: Particle[] }>>([]);
+  const [bursts, setBursts] = useState<Array<{ id: string; particles: Particle[] }>>([]);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -43,10 +43,9 @@ export default function Fireworks() {
       { x: 50, y: 35 },
     ];
 
-    let burstId = 0;
-
     burstPositions.forEach((pos, i) => {
       setTimeout(() => {
+        const currentBurstId = `burst-${Date.now()}-${i}-${Math.random().toString(36).substr(2, 9)}`;
         const particles: Particle[] = [];
         for (let p = 0; p < PARTICLES_PER_BURST; p++) {
           const angle = (p / PARTICLES_PER_BURST) * Math.PI * 2 + random(0, 0.5);
@@ -54,7 +53,7 @@ export default function Fireworks() {
           const tx = Math.cos(angle) * velocity;
           const ty = Math.sin(angle) * velocity - 40;
           particles.push({
-            id: burstId * 1000 + p,
+            id: `${currentBurstId}-p-${p}`,
             x: pos.x,
             y: pos.y,
             tx,
@@ -65,7 +64,7 @@ export default function Fireworks() {
             delay: random(0, 80),
           });
         }
-        setBursts((prev) => [...prev, { id: burstId++, particles }]);
+        setBursts((prev) => [...prev, { id: currentBurstId, particles }]);
       }, i * BURST_DELAY_MS);
     });
 
